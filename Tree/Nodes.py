@@ -100,7 +100,7 @@ class BST:
             self.nodes(rt.left)
             self.cnt+=1
             self.nodes(rt.right)
-
+    
 
 b1=BST()
 
