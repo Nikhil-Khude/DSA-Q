@@ -85,21 +85,20 @@ class BST:
 
     def get_del(self,rt,value):
         if rt is None:
-            return None
+            return 
         else:
             if value<rt.data:
                 rt.left=self.get_del(rt.left,value)
-            elif value>rt.data:
+            if value>rt.data:
                 rt.right=self.get_del(rt.right,value)
             else:
-                #if node with 0 or 1 child
+                #if Node with 1 or 0 Child
                 if rt.left is None:
                     return rt.right
                 if rt.right is None:
                     return rt.left
-
-                # Node With 2 child
-                succ= self.get_successor(rt)
+                #if Node With 2 child
+                succ=self.get_successor(rt)
                 rt.data=succ.data
                 rt.right=self.get_del(rt.right,succ.data)
         return rt
@@ -191,3 +190,6 @@ print("\nAfter Removol of Node:")
 b1.inorder(b1.root)
 
 
+b1.root=b1.get_del(b1.root,10)
+print("\nAfter Deletion:")
+b1.inorder(b1.root)
